@@ -21,16 +21,13 @@ module PluginsList
         "itchyny/lightline.vim",
         "w0rp/ale",
         "tpope/vim-commentary",
-        "vim-ruby/vim-ruby.git",
         "pope/vim-rbenv.git",
         "tpope/vim-bundler.git",
-        "tpope/vim-rake.git",
-        "tpope/vim-rails.git"
     ]
     DEV_LIST = []
     user_dir = File.expand_path("~");
     UPLUGS_DIR = File.join(user_dir,".vim/uplugs")
     DEV_UPLUGS_DIR = File.join(user_dir, ".vim/dev_uplugs")
-    VIMSCRIPTS_REPO = "https://github.com/Khadmium/vim-scripts.git"
-    VIMRC_DIR = File.join(user_dir, "vim-scripts/")
+    REPO = "https://github.com/Khadmium/vim-scripts.git"
+    SRC_DIR = File.join(user_dir, "vim-scripts/")
 end

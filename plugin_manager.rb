@@ -9,11 +9,12 @@ def get_author_and_directory(item)
     if index == -1
         return Nil
     else
-        fst = current_item[0..index]
-        snd = current_item[index+1..current_item.length]
+        fst = current_item[0...index]
+        snd = current_item[index+1...current_item.length]
         return fst, snd
     end
 end
+
 
 def ensure_plugin_in_dir(args)
     directory = args[:directory]
@@ -110,8 +111,12 @@ def update_vimrc(uplugs_dir, dev_uplugs_dir, src_dir, repo)
 end
 
 def main
+    src_dir = PluginsList.SRC_DIR
+    dev_plugs_dir = PluginsList.DEV_UPLUGS_DIR
     plugins_list = PluginsList.LIST
+    repo = PluginList.REPO
     plugs_dir = PluginsList.UPLUGS_DIR
+    update_vimrc(plugs_dir, dev_plugs_dir, src_dir, repo)
     update_plugins(plugins_list, plugs_dir)
     if $1 == "--use-dev"
         plugins_list = PluginsList.DEV_LIST
