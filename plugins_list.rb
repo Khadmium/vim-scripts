@@ -21,7 +21,7 @@ module PluginsList
         "itchyny/lightline.vim",
         "w0rp/ale",
         "tpope/vim-commentary",
-        "pope/vim-rbenv.git",
+        "tpope/vim-rbenv.git",
         "tpope/vim-bundler.git",
     ]
     DEV_LIST = []
@@ -29,5 +29,6 @@ module PluginsList
     UPLUGS_DIR = File.join(user_dir,".vim/uplugs")
     DEV_UPLUGS_DIR = File.join(user_dir, ".vim/dev_uplugs")
     REPO = "https://github.com/Khadmium/vim-scripts.git"
+    GITHUB_PAGE = "https://github.com/"
     SRC_DIR = File.join(user_dir, "vim-scripts/")
 end
