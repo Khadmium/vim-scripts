@@ -108,7 +108,6 @@ let s:vimrc_AlePostLintFunction = function('s:Vimrc_AleCallbackEmptyFunction')
 function! s:Vimrc_AleCallbackUnsetCWinOutput() abort
     let s:vimrc_AlePostLintFunction = function('s:Vimrc_AleCallbackEmptyFunction')
     let g:ale_set_quickfix = 0
-    execute "cwindow"
 endfunction
 
 command ALELintPost call s:vimrc_AlePostLintFunction()
@@ -146,7 +145,7 @@ endfunction
 command AlePassiveMode call s:Vimrc_AlePassiveMode()
 command AleActiveMode call s:Vimrc_AleActiveMode()
 command AleExplicitMode call s:Vimrc_AleExplicitMode()
-command AleLintToCWin call s:Vimrc_AleLintToCWin()
+command AleLint call s:Vimrc_AleLintToCWin()
 
 call s:Vimrc_AlePassiveMode()
 
