@@ -130,7 +130,7 @@ def update_vimrc(uplugs_dir, dev_uplugs_dir, src_dir, repo)
     FileUtils.cp(vimrc_path, $_vim_paths[:vimrc_path])
     content_of_init = "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n" +
                       "let &packpath = &runtimepath\n" +
-                      "src_dir_expanded ~/.vimrc\n"
+                      "source ~/.vimrc\n"
     FileUtils.mkdir_p($_vim_paths[:neovim_config_dir]);
     if !File.exists?($_vim_paths[:neovim_config])
         File.open($_vim_paths[:neovim_config], "w") do |file|
