@@ -124,7 +124,7 @@ def update_vimrc(uplugs_dir, dev_uplugs_dir, src_dir, repo)
         system("git clone " + repo) or raise RuntimeError, "cannot clone reference vim-scripts repo"
     else
         Dir.chdir(source_repo)
-        system("git fetch") or raise RuntimeError, "cannot update reference vim-scripts repo"
+        system("git pull") or raise RuntimeError, "cannot update reference vim-scripts repo"
     end
     vimrc_path = File.join(source_repo, ".vimrc")
     FileUtils.cp(vimrc_path, $_vim_paths[:vimrc_path])
