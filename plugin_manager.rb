@@ -40,7 +40,7 @@ def install_non_existing_plugin(args)
     additional_exec_dir = args[:additional_exec_dir]
     plugin_dir = args[:plugin_dir]
     Dir.chdir(plugin_dir)
-    system('git fetch') or raise RuntimeError, "failed execute command: git pull"
+    system('git pull') or raise RuntimeError, "failed execute command: git pull"
     system('git submodule update --init --recursive') or raise RuntimeError, "failed execute command: git pull"
     Dir.chdir(File.expand_path(additional_exec_dir)) if !additional_exec_dir.nil?
     if !additional.nil?
