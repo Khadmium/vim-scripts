@@ -29,8 +29,8 @@ def ensure_plugin_in_dir(args)
         puts(">>>> updating plugin: " + url_part)
         install_non_existing_plugin(args)
     else
-      puts(">>>> installing plugin: " + url_part)
-      update_existing_plugin(args)
+        puts(">>>> installing plugin: " + url_part)
+        update_existing_plugin(args)
     end
     Dir.chdir(curr_dir)
 end
@@ -40,7 +40,8 @@ def install_non_existing_plugin(args)
     additional_exec_dir = args[:additional_exec_dir]
     plugin_dir = args[:plugin_dir]
     Dir.chdir(plugin_dir)
-    system('git pull') or raise RuntimeError, "failed execute command: git pull"
+    system('git fetch') or raise RuntimeError, "failed execute command: git pull"
+    system('git submodule update --init --recursive') or raise RuntimeError, "failed execute command: git pull"
     Dir.chdir(File.expand_path(additional_exec_dir)) if !additional_exec_dir.nil?
     if !additional.nil?
         system(additional) or raise RuntimeError, "failed additional command"
@@ -55,13 +56,13 @@ def update_existing_plugin(args)
     plugin_dir = args[:plugin_dir]
     Dir.chdir(directory);
     system("git clone "+ PluginsList::GITHUB_PAGE + url_part)
+    Dir.chdir(plugin_dir)
+    system('git submodule update --init --recursive') or raise RuntimeError, "failed execute command: git pull"
     if !additional_exec_dir.nil?
         Dir.chdir(File.expand_path(additional_exec_dir))
-    else
-        Dir.chdir(plugin_dir)
     end
     if !additional.nil?
-        system(additional_exec_dir) or raise RuntimeError, "failed additional command"
+        system(additional) or raise RuntimeError, "failed additional command"
     end
 end
 
@@ -130,7 +131,7 @@ def update_vimrc(uplugs_dir, dev_uplugs_dir, src_dir, repo)
     FileUtils.cp(vimrc_path, $_vim_paths[:vimrc_path])
     content_of_init = "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n" +
                       "let &packpath = &runtimepath\n" +
-                      "src_dir_expanded ~/.vimrc\n"
+                      "source ~/.vimrc\n"
     FileUtils.mkdir_p($_vim_paths[:neovim_config_dir]);
     if !File.exists?($_vim_paths[:neovim_config])
         File.open($_vim_paths[:neovim_config], "w") do |file|
@@ -145,7 +146,7 @@ def remove_unlisted_plugins(plugs_list, plugs_dir)
     plugs_list.each do |item|
         dir = nil
         if item.kind_of?(Array)
-            _, dir = get_author_and_directory(item[1])
+            _, dir = get_author_and_directory(item[0])
             plugins_set.add(dir)
 
         else

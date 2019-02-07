@@ -145,7 +145,7 @@ endfunction
 command AlePassiveMode call s:Vimrc_AlePassiveMode()
 command AleActiveMode call s:Vimrc_AleActiveMode()
 command AleExplicitMode call s:Vimrc_AleExplicitMode()
-command AleLintToCWin call s:Vimrc_AleLintToCWin()
+command AleLint call s:Vimrc_AleLintToCWin()
 
 call s:Vimrc_AlePassiveMode()
 

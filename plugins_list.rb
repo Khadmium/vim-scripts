@@ -5,7 +5,7 @@ module PluginsList
         "scrooloose/nerdtree",
         "majutsushi/tagbar",
         "vim-scripts/vcscommand.vim",
-        "valloric/youcompleteme",
+        [ "valloric/youcompleteme", 'python3 ./install.py'],
         "sjl/badwolf",
         "vim-scripts/OmniCppComplete",
         "qpkorr/vim-bufkill",
