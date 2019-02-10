@@ -171,9 +171,11 @@ def main
     plugins_list = PluginsList::LIST
     repo = PluginsList::REPO
     plugs_dir = PluginsList::UPLUGS_DIR
-    update_vimrc(plugs_dir, $1 == "--use-dev" ? dev_plugs_dir : nil, src_dir, repo)
+    arg_or_nil = (ARGV.empty?) ? "" : ARGV[0];
+    puts ">>>> running script with flags: " + arg_or_nil
+    update_vimrc(plugs_dir, arg_or_nil == "--use-dev" ? dev_plugs_dir : nil, src_dir, repo)
     update_plugins(plugins_list, plugs_dir)
-    if $1 == "--use-dev"
+    if arg_or_nil == "--use-dev"
         plugins_list = PluginsList::DEV_LIST
         plugs_dir = PluginsList::DEV_UPLUGS_DIR
         update_plugins(plugins_list, plugs_dir)
@@ -181,7 +183,7 @@ def main
         FileUtils.rm_rf(PluginsList::DEV_UPLUGS_DIR);
     end
     remove_unlisted_plugins(PluginsList::LIST, PluginsList::UPLUGS_DIR)
-    if $1 == "--use-dev"
+    if arg_or_nil == "--use-dev"
         remove_unlisted_plugins(PluginsList::DEV_LIST, PluginsList::DEV_UPLUGS_DIR)
     end
 end

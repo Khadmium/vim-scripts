@@ -11,7 +11,6 @@ module PluginsList
         "qpkorr/vim-bufkill",
         "mattn/emmet-vim",
         "tpope/vim-eunuch",
-        "RRethy/vim-illuminate.git",
         "octol/vim-cpp-enhanced-highlight",
         "mxw/vim-jsx",
         "leafgarland/typescript-vim",
@@ -24,7 +23,9 @@ module PluginsList
         "tpope/vim-rbenv.git",
         "tpope/vim-bundler.git",
     ]
-    DEV_LIST = []
+    DEV_LIST = [
+        "h1mesuke/vim-unittest"
+    ]
     user_dir = File.expand_path("~");
     UPLUGS_DIR = File.join(user_dir,".vim/uplugs")
     DEV_UPLUGS_DIR = File.join(user_dir, ".vim/dev_uplugs")
