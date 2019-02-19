@@ -197,28 +197,28 @@ set complete=.,w,b,k
 let g:ycm_auto_trigger = 0
 
 let g:Illuminate_ftblacklist = ['nerdtree', 'netrw']
-let g:Illuminate_delay = 250
+let g:Illuminate_delay = 150
 let g:Illuminate_highlightUnderCursor = 1
+let g:Illuminate_reltime_delay = 0.1
+let g:Illuminate_mode = 2
 
 
 hi illuminatedWord ctermbg=53
 nnoremap <F2> :set wrap! wrap?<CR>
 imap <F2> <C-O><F2>
 
-nnoremap <F5> :Ack! -G'.*\.(cpp\|hpp)' ''<left>
-imap <F5> <C-O><F5>
+nnoremap <leader>sc :Ack! -G'.*\.(cpp\|hpp)' ''<left>
 
-nnoremap <F6> :Ack! -G'.*\.ttcn3' ''<left>
-imap <F6> <C-O><F6>
+nnoremap <leader>st :Ack! -G'.*\.ttcn3' ''<left>
 
-nnoremap <F4> :vimgrep // %<left><left><left>
-imap <F4> <C-O><F4>
+nnoremap <leader>sf :vimgrep // %<left><left><left>
 
-nnoremap <F3> :lvimgrep // %<left><left><left>
+nnoremap <leader>sF :lvimgrep // %<left><left><left>
+
+nnoremap <F3> :IlluminationToggle<CR>
 imap <F3> <C-O><F3>
 
-nnoremap <F7> :IlluminationToggle<CR>
-imap <F7> <C-O><F7>
+nnoremap <F4> :let g:Illuminate_use_prefix_pattern = !get(g:, 'Illuminate_use_prefix_pattern', 0)<CR>
 
 command WNERDTree NERDTree | vertical resize 70
 command WideWindow vertical resize 70
