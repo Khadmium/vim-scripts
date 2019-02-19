@@ -5,7 +5,7 @@ module PluginsList
         "scrooloose/nerdtree",
         "majutsushi/tagbar",
         "vim-scripts/vcscommand.vim",
-        [ "valloric/youcompleteme", 'python3 ./install.py'],
+        # [ "valloric/youcompleteme", 'python3 ./install.py'],
         "sjl/badwolf",
         "vim-scripts/OmniCppComplete",
         "qpkorr/vim-bufkill",
@@ -22,6 +22,7 @@ module PluginsList
         "tpope/vim-commentary",
         "tpope/vim-rbenv.git",
         "tpope/vim-bundler.git",
+        "Khadmium/vim-illuminate.git",
     ]
     DEV_LIST = [
         "h1mesuke/vim-unittest"
