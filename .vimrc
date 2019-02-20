@@ -200,9 +200,13 @@ let g:Illuminate_ftblacklist = ['nerdtree', 'netrw']
 let g:Illuminate_delay = 150
 let g:Illuminate_highlightUnderCursor = 1
 let g:Illuminate_reltime_delay = 0.1
-let g:Illuminate_mode = 2
-
-
+if has('nvim')
+    let g:Illuminate_mode = 1
+elseif has('reltime')
+    let g:Illuminate_mode = 2
+else
+    let g:Illuminate_mode = 3
+endif
 hi illuminatedWord ctermbg=53
 nnoremap <F2> :set wrap! wrap?<CR>
 imap <F2> <C-O><F2>
