@@ -1,7 +1,6 @@
 #!/bin/bash
 curr_dir=$(pwd)
-
-PLUG_NAME="youcompleteme"
+PLUG_NAME="javacomplete2"
 mkdir -p ~/.vim/
 if [ -e "$HOME/.vim/$PLUG_NAME" ]
 then
@@ -10,12 +9,9 @@ then
     git submodule update --init --recursive
 else
     cd "$HOME/.vim/"
-    git clone https://github.com/Valloric/YouCompleteMe.git "$PLUG_NAME"
+    git clone https://github.com/artur-shaik/vim-javacomplete2.git "$PLUG_NAME"
     cd "./$PLUG_NAME"
     git submodule update --init --recursive
 fi
-cd "$HOME/.vim/$PLUG_NAME"
-chmod u+x ./install.py
-python3 ./install.py --clang-completer --ts-completer
 cd $curr_dir
 

@@ -20,8 +20,8 @@ module PluginsList
         "itchyny/lightline.vim",
         "w0rp/ale",
         "tpope/vim-commentary",
-        "tpope/vim-rbenv.git",
-        "tpope/vim-bundler.git",
+        # "tpope/vim-rbenv.git",
+        # "tpope/vim-bundler.git",
         "Khadmium/vim-illuminate.git",
     ]
     DEV_LIST = [
