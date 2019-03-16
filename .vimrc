@@ -1,6 +1,5 @@
 if exists('g:local_vimrc_script')
     execute "source " . g:local_vimrc_script
-    finish
 endif
 
 if has('win32') || has('win64')
