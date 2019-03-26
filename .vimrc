@@ -55,7 +55,6 @@ autocmd Filetype java setlocal cindent
 autocmd Filetype scala setlocal cindent
 autocmd Filetype cs setlocal cindent
 autocmd Filetype js,jsx,ts,tsx setlocal cindent
-autocmd Filetype go setlocal cindent
 autocmd Filetype perl setlocal cindent
 autocmd Filetype rust setlocal cindent
 
@@ -169,6 +168,7 @@ autocmd Filetype rust call s:Vimrc_SetBracketsMapping()
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType c,cpp,cxx,cc,h,hpp,hxx,hh setlocal omnifunc=omni#cpp#complete#Main
+autocmd FileType go setlocal omnifunc=go#complete#Complete
 
 
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
@@ -208,21 +208,17 @@ else
 endif
 hi illuminatedWord ctermbg=53
 nnoremap <F2> :set wrap! wrap?<CR>
-imap <F2> <C-O><F2>
 
-nnoremap <leader>sc :Ack! -G'.*\.(cpp\|hpp)' ''<left>
-
+nnoremap <leader>sc :Ack! -G'.*\.(cpp\|hpp\|c\|h\|cxx\|hxx)' ''<left>
 nnoremap <leader>st :Ack! -G'.*\.ttcn3' ''<left>
-
 nnoremap <leader>sf :vimgrep // %<left><left><left>
-
 nnoremap <leader>sF :lvimgrep // %<left><left><left>
 
 nnoremap <F3> :IlluminationToggle<CR>
-imap <F3> <C-O><F3>
-
 nnoremap <F4> :let g:Illuminate_use_prefix_pattern = !get(g:, 'Illuminate_use_prefix_pattern', 0)<CR>
+nnoremap <F5> :set nu!<CR>
 
 command WNERDTree NERDTree | vertical resize 70
 command WideWindow vertical resize 70
 
+let g:go_bin_path="~/go/bin"
