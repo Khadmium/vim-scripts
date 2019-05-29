@@ -24,9 +24,9 @@ let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
 filetype plugin on
-set number	
-set linebreak	
-set showbreak=+++ 
+set number
+set linebreak
+set showbreak=+++
 set textwidth=100
 set showmatch
 set visualbell
@@ -41,6 +41,7 @@ set autoindent
 set expandtab
 set softtabstop=4
 set tabstop=4
+syntax on
 function! Vimrc_ApplyIndentationSettings() abort
     setlocal shiftwidth=4	" Number of auto-indent spaces
     setlocal autoindent
@@ -153,18 +154,18 @@ command AleLint call s:Vimrc_AleLintToCWin()
 call s:Vimrc_AlePassiveMode()
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-function! s:Vimrc_SetBracketsMapping() abort
+function! Vimrc_SetBracketsMapping() abort
     inoremap <buffer> {<CR>  {<CR>}<Esc>O
 endfunction
 
-autocmd Filetype c,cpp,cxx,cc,h,hpp,hxx,hh call s:Vimrc_SetBracketsMapping()
-autocmd Filetype java call s:Vimrc_SetBracketsMapping()
-autocmd Filetype scala call s:Vimrc_SetBracketsMapping()
-autocmd Filetype cs call s:Vimrc_SetBracketsMapping()
-autocmd Filetype js,jsx,ts,tsx call s:Vimrc_SetBracketsMapping()
-autocmd Filetype go call s:Vimrc_SetBracketsMapping()
-autocmd Filetype perl call s:Vimrc_SetBracketsMapping()
-autocmd Filetype rust call s:Vimrc_SetBracketsMapping()
+autocmd Filetype c,cpp,cxx,cc,h,hpp,hxx,hh call Vimrc_SetBracketsMapping()
+autocmd Filetype java call Vimrc_SetBracketsMapping()
+autocmd Filetype scala call Vimrc_SetBracketsMapping()
+autocmd Filetype cs call Vimrc_SetBracketsMapping()
+autocmd Filetype js,jsx,ts,tsx call Vimrc_SetBracketsMapping()
+autocmd Filetype go call Vimrc_SetBracketsMapping()
+autocmd Filetype perl call Vimrc_SetBracketsMapping()
+autocmd Filetype rust call Vimrc_SetBracketsMapping()
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType c,cpp,cxx,cc,h,hpp,hxx,hh setlocal omnifunc=omni#cpp#complete#Main
