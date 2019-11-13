@@ -16,6 +16,6 @@ else
 fi
 cd "$HOME/.vim/$PLUG_NAME"
 chmod u+x ./install.py
-python3 ./install.py --clang-completer --ts-completer
+python3 ./install.py "$@"
 cd $curr_dir
 
