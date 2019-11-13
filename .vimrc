@@ -87,8 +87,8 @@ let g:ale_linters = {}
 " ale liters: 
 "
 " ruby linters
-let g:ale_linters['ruby'] = ['ruby']
-let g:ale_ruby_ruby_executable = 'ruby'
+"let g:ale_linters['ruby'] = ['ruby']
+"let g:ale_ruby_ruby_executable = 'ruby'
 
 let g:ale_sign_error = '!>'
 let g:ale_sign_warning = '?>'
