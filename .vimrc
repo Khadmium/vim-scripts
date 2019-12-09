@@ -178,8 +178,6 @@ highlight EOLWS ctermbg=red guibg=red
 
 colorscheme badwolf
 let g:ackprg = 'ag --vimgrep --smart-case'
-let g:EclimCompletionMethod = 'completefunc'
-let g:EclimFileTypeValidate = 0
 
 set noswapfile
 set nobackup
@@ -187,14 +185,7 @@ set nowritebackup
 
 autocmd FileType netrw setl bufhidden=wipe
 
-let g:ycm_filetype_whitelist = {
-    \ 'javascript': 1,
-    \ 'typescript': 1,
-    \ 'python': 1
-    \}
-
 set complete=.,w,b,k
-let g:ycm_auto_trigger = 0
 
 let g:Illuminate_ftblacklist = ['nerdtree', 'netrw']
 let g:Illuminate_delay = 150
@@ -221,5 +212,3 @@ nnoremap <F5> :set nu!<CR>
 
 command WNERDTree NERDTree | vertical resize 70
 command WideWindow vertical resize 70
-
-let g:go_bin_path="~/go/bin"
